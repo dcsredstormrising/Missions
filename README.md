@@ -3,12 +3,15 @@
 Note: Every DCS patch this has to be reaccomplished
 
 Edit your files for mission editing. The below changes make your DCS able to load and save lua files. To enable this you will need to access the DCS root, so from your install folder (not saved games), open Scripts/MissionScripting.lua A. Comment out all the lines in the do block below the sanitization function with -\-. This allows the LUA engine access to the file system. It should look similar to:
+```
   --sanitizeModule('os')
   --sanitizeModule('io')
   --sanitizeModule('lfs')
   --require = nil
   --loadlib = nil
+  ```
 This make planes capable from starting from any spot on the ground rather than a fixed parking spot. This doesn't work for FC3 planes. From your install folder again, open C:\Program Files\Eagle Dynamics\DCS World OpenBeta\MissionEditor\modules\me_route.lua starting on Line 139
+```
 --
  plane_one_point = {
  	actions.turningPoint, 
@@ -29,6 +32,7 @@ This make planes capable from starting from any spot on the ground rather than a
  	actions.takeoffGround,	--added 
  	actions.takeoffGroundHot, --added
  },	
+ ```
 This lets neutral coalitions be added to the mission. From your install folder, open 'C:\Program Files\Eagle Dynamics\DCS World OpenBeta\MissionEditor\MissionEditor.lua' uncomment Line 6 (comments in lua are --)
 --test_addNeutralCoalition = true
 Not Required AnymoreThis will allow specific units to be on Russia or any red country. From your install folder, open 'C:Program Files\Eagle Dynamics\DCS World\Scripts\database\db_countries.lua'. In this database you can add/remove any unit to any country this only has to be done on who ever is editing the miz. Starting at lin 1032:
@@ -36,6 +40,8 @@ Not Required AnymoreThis will allow specific units to be on Russia or any red co
 	cnt_unit( units.Planes.Plane, "E-3A");
 	cnt_unit( units.Planes.Plane, "KC-135");
 	cnt_unit( units.Planes.Plane, "KC135MPRS");
+	
+	
 Below is only applicaple to the Cuacasus Server.
 (B) Required changes to the MIZ via Mission Editor:
 Group and pilot/unit names for all airbase and FARP slots must be prefixed with their originating base: Required for slotBlocker.lua e.g. "Gelendzhik Red AF #010", "RedStagingPoint Helos #001", "LM95 Blue Helos #007", etc.
@@ -85,6 +91,7 @@ do NOT assign a color to this trigger, as this will create smoke in these zones
 options file (no extension for this file) inside MIZ e.g. RSR_Dynamic_PvP_Spring_AM_Clear_v4.2.3\options
 These prevents players viewing opposing team units when changing slots.
 "ground_aim_helper" prevent aim assist when operating some vehicles in Combined Arms
+```
 options = 
 {
     ["miscellaneous"] = 
@@ -102,4 +109,5 @@ options =
 	{
 		["ground_aim_helper"] = false,
 	}
+	```
 Change any red/blue country assigned FARP helipads to a neutral country as described above in (B7)
