@@ -10,29 +10,7 @@ Edit your files for mission editing. The below changes make your DCS able to loa
   --require = nil
   --loadlib = nil
   ```
-This make planes capable from starting from any spot on the ground rather than a fixed parking spot. This doesn't work for FC3 planes. From your install folder again, open C:\Program Files\Eagle Dynamics\DCS World OpenBeta\MissionEditor\modules\me_route.lua starting on Line 139
-```
---
- plane_one_point = {
- 	actions.turningPoint, 
- 	actions.flyOverPoint,
- 	actions.takeoffRunway, 
- 	actions.takeoffParking,
- 	--actions.takeoffParkingHot, 
- 	--actions.landing,
- 	actions.takeoffGround,	--added 
- 	actions.takeoffGroundHot, --added
- },
- plane_first_point = {
- 	actions.turningPoint,
- 	actions.flyOverPoint,
- 	actions.takeoffRunway, 
- 	actions.takeoffParking, 
- 	actions.takeoffParkingHot, 
- 	actions.takeoffGround,	--added 
- 	actions.takeoffGroundHot, --added
- },	
- ```
+
 This lets neutral coalitions be added to the mission. From your install folder, open 'C:\Program Files\Eagle Dynamics\DCS World OpenBeta\MissionEditor\MissionEditor.lua' uncomment Line 6 (comments in lua are --)
 --test_addNeutralCoalition = true
 Not Required AnymoreThis will allow specific units to be on Russia or any red country. From your install folder, open 'C:Program Files\Eagle Dynamics\DCS World\Scripts\database\db_countries.lua'. In this database you can add/remove any unit to any country this only has to be done on who ever is editing the miz. Starting at lin 1032:
